@@ -1,9 +1,5 @@
-from space import Space
-
-
 class SpacePoint:
     def __init__(self, x, y, z):
         self.x = x
         self.y = y
         self.z = z
-

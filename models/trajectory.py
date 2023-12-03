@@ -1,9 +1,14 @@
+import math
+
+
 class Trajectory:
-    def __init__(self, coefficients: [], *task_type):
-        self.coefficients = coefficients
+    def __init__(self, t: []):
+        self.time = t
 
-        if len(coefficients) != 3:
-            self.coefficients[2] = 0
 
-    def get_velocity(self):
-        pass
+def function_a(x):
+    return -(math.exp(x) - math.exp(-x)) // 2
+
+
+def function_b(x):
+    return math.sin(x)

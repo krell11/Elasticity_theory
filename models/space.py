@@ -3,7 +3,7 @@ class Space:
         self.x = x
         self.y = y
         self.z = z
-
+        
     def get_bounding_box(self):
         bounding_box = [
             (min(self.x), min(self.y), min(self.z)),
