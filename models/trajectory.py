@@ -1,14 +1,17 @@
 import math
+from models.material_body import MaterialBody
+from utils.runge_kutta import runge_kutta
 
 
 class Trajectory:
-    def __init__(self, t: []):
+    def __init__(self, t: ()):
         self.time = t
 
+    def create_trajectory(self, body: MaterialBody):
+        body_points = body.add_points_to_body(20)
+        trajectories = []
+        for point_num, target_point in enumerate(body_points):
+            point_cords = (target_point.x, target_point.y)
+            trajectories.append(runge_kutta(time_limits=self.time, points0=point_cords, h=0.2))
 
-def function_a(x):
-    return -(math.exp(x) - math.exp(-x)) // 2
-
-
-def function_b(x):
-    return math.sin(x)
+        return trajectories
