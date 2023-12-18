@@ -10,9 +10,8 @@ def runge_kutta(time_limits: tuple = (0, 5), points0: tuple = (0, 0), h: float =
     time = np.arange(time_limits[0], time_limits[1], h)
     points = np.zeros((len(time), len(points0)))
     points[0] = points0
-
     for i in range(1, len(time)):
-        t = time[i - 1]
+        t = time[i]
         k1 = h * f(t, points[i - 1])
         k2 = h * f(t + h / 2, points[i - 1] + k1 / 2)
         k3 = h * f(t + h / 2, points[i - 1] + k2 / 2)
@@ -20,4 +19,3 @@ def runge_kutta(time_limits: tuple = (0, 5), points0: tuple = (0, 0), h: float =
         points[i] = points[i - 1] + (k1 + 2 * k2 + 2 * k3 + k4) / 6
 
     return points
-

@@ -22,5 +22,4 @@ class MaterialBody:
             distance = (x**2 + y**2) ** 0.5
             if self.r1 <= distance <= self.r2 and x >= 0 and y >= 0:
                 points.append(MaterialPoint(x, y))
-        self.body_points.append(points)
-        return self.body_points
+        return points
