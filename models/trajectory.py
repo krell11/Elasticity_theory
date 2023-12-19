@@ -9,7 +9,7 @@ class Trajectory:
         self.points = []
 
     def create_trajectory(self, body: MaterialBody):
-        body_points = body.add_points_to_body(3)
+        body_points = body.add_points_to_body()
         trajectories = []
         for point_num, target_point in enumerate(body_points):
             point_cords = (target_point.x, target_point.y)
