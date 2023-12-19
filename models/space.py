@@ -1,18 +1,19 @@
+from models.space_point import SpacePoint
+
+
 class Space:
-    def __init__(self, x: (), y: (), z: ()):
-        self.x = x
-        self.y = y
-        self.z = z
-        
-    def get_bounding_box(self):
-        bounding_box = [
-            (min(self.x), min(self.y), min(self.z)),
-            (max(self.x), min(self.y), min(self.z)),
-            (max(self.x), max(self.y), min(self.z)),
-            (max(self.x), max(self.y), max(self.z)),
-            (min(self.x), max(self.y), min(self.z)),
-            (min(self.x), min(self.y), max(self.z)),
-            (max(self.x), min(self.y), max(self.z)),
-            (min(self.x), max(self.y), max(self.z)),
-        ]
-        return bounding_box
+    def __init__(self, points: [SpacePoint]):
+        self.points = points
+        self.x = []
+        self.y = []
+
+    def get_bounding_conditions(self):
+        x, y = [], []
+        for point in self.points:
+            x.append(point.x)
+            y.append(point.y)
+
+        self.x[0] = min(x)
+        self.x[1] = max(x)
+        self.y[0] = min(y)
+        self.y[1] = max(y)
