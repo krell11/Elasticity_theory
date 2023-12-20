@@ -7,6 +7,7 @@ import os
 
 
 images_folder = "images_path/"
+image_name = "trajectory.png"
 
 
 def trajectory_plotter(points_coordinates: [], x_limits: [] = None, y_limits: [] = None):
@@ -24,4 +25,4 @@ def trajectory_plotter(points_coordinates: [], x_limits: [] = None, y_limits: []
 
     plt.grid(True)
     plt.show()
-
+    plt.savefig(os.path.join(images_folder + image_name))

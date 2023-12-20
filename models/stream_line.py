@@ -20,9 +20,6 @@ class StreamLine:
     def plot_tangents(self, scale=1):
         plt.figure()
         for trajectory, tangents in zip(self.trajectory.points, self.tangents):
-            x_vals, y_vals = zip(*trajectory)
-            plt.plot(x_vals, y_vals, label='Trajectory')
-
             for point, tangent in zip(trajectory[::5], tangents):
                 start_point = (point[0] - scale * tangent[0], point[1] - scale * tangent[1])
                 end_point = (point[0] + scale * tangent[0], point[1] + scale * tangent[1])

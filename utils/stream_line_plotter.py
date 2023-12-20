@@ -1,5 +1,9 @@
 import matplotlib.pyplot as plt
 from models.stream_line import StreamLine
+import os
+
+images_folder = "images_path/"
+image_name = "streamline.png"
 
 
 def plot_tangents(stream: StreamLine, scale=1):
@@ -14,4 +18,5 @@ def plot_tangents(stream: StreamLine, scale=1):
             plt.plot([start_point[0], end_point[0]], [start_point[1], end_point[1]], 'r-')
     plt.xlabel('X')
     plt.ylabel('Y')
+    plt.savefig(os.path.join(images_folder + image_name))
     plt.show()
