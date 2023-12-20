@@ -24,5 +24,5 @@ def trajectory_plotter(points_coordinates: [], x_limits: [] = None, y_limits: []
         plt.ylim(y_limits[0], y_limits[1])
 
     plt.grid(True)
-    plt.show()
     plt.savefig(os.path.join(images_folder + image_name))
+    plt.show()
