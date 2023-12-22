@@ -2,16 +2,14 @@ import matplotlib.pyplot as plt
 from models.stream_line import StreamLine
 import os
 
+
 images_folder = "images_path/"
 image_name = "streamline.png"
 
 
-def plot_tangents(stream: StreamLine, scale=1):
+def plot_tangents(stream: StreamLine, scale=1, times= 0):
     plt.figure()
     for trajectory, tangents in zip(stream.trajectory.points, stream.tangents):
-        x_vals, y_vals = zip(*trajectory)
-        plt.plot(x_vals, y_vals, label='Trajectory')
-
         for point, tangent in zip(trajectory[::5], tangents):
             start_point = (point[0] - scale * tangent[0], point[1] - scale * tangent[1])
             end_point = (point[0] + scale * tangent[0], point[1] + scale * tangent[1])
